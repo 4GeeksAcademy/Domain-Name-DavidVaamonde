@@ -14,14 +14,32 @@ window.onload = function() {
   const nombre = ["fuerte", "cachopo", "barba", "lapiz"];
 
   //Opción 1
+
+  console.log("Opción 1: ");
+
   let pronomAl = aleatorio(pronombre);
   let adjAl = aleatorio(adj);
   let nombreAl = aleatorio(nombre);
 
-  document.getElementById("nombredominio1").innerText =
-    pronomAl + adjAl + nombreAl + ".com";
+  //Imprime en página web HTML:
+
+  document.getElementById("nombredominio1").innerHTML =
+    "<p style='border: 2px solid red;'>" +
+    pronomAl +
+    adjAl +
+    nombreAl +
+    ".com </p>";
+
+  document.getElementById("nombredominio1").innerHTML +=
+    "<p>Comprueba en consola</p>";
+
+  //Imprime en consola:
+
+  console.log(pronomAl + adjAl + nombreAl + ".com");
 
   //Opcion 2
+
+  console.log("Opción 2:");
 
   const arrayDom = [pronombre, adj, nombre];
 
@@ -31,20 +49,44 @@ window.onload = function() {
     newDomain += aleatorio(arrayDom[i]);
   }
 
-  document.getElementById("nombredominio2").innerText = newDomain + ".com";
+  //Imprime en la página web HTML:
+  document.getElementById("nombredominio2").innerHTML =
+    "<p style='border: 2px dashed red'>" + newDomain + ".com </p>";
+  document.getElementById("nombredominio2").innerHTML +=
+    "<p>Comprueba en consola</p>";
+
+  //Imprime en consola:
+
+  console.log(newDomain + ".com");
 
   //Opcion 3
 
   let newDomain2 = "";
 
+  console.log("Opción 3: ");
+
   for (let i = 0; i < 10; i++) {
     const elementos = arrayDom.map(arr => arr[i % arr.length]);
     const frase = elementos.join("");
+
+    //Imprime en la página web HTML:
     document.getElementById("nombredominio3").innerHTML +=
-      "<p>" + (i + 1) + ". " + frase + ".com </p>";
+      "<p style='border: 2px dotted red'>" +
+      (i + 1) +
+      ". " +
+      frase +
+      ".com </p>";
+
+    //Imprime en consola:
+    console.log(i + 1 + ". " + frase + ".com");
   }
 
-  //Con extensiones
+  document.getElementById("nombredominio3").innerHTML +=
+    "<p>Comprueba en consola</p>";
+
+  //Opción 4 (Con extensiones web)
+
+  console.log("Opción 4:");
 
   const extensiones = [".com", ".net", ".es", ".eu", ".org"];
 
@@ -56,7 +98,16 @@ window.onload = function() {
     newDomain3 += aleatorio(arrayExt[i]);
   }
 
-  document.getElementById("nombredominio4").innerText = newDomain3;
+  //Imprime en la página web HTML
+  document.getElementById("nombredominio4").innerHTML =
+    "<p style='border: 2px groove red'>" + newDomain3 + "</p>";
+
+  //Imprime en consola:
+
+  console.log(newDomain3);
+
+  document.getElementById("nombredominio4").innerHTML +=
+    "<p>Comprueba en consola</p>";
 };
 
 function aleatorio(arr) {
