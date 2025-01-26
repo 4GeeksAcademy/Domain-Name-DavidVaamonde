@@ -92,6 +92,7 @@ window.onload = function() {
 
   const arrayExt = [pronombre, adj, nombre, extensiones];
 
+  //Método for tradicional
   let newDomain3 = "";
 
   for (let i = 0; i < arrayExt.length; i++) {
@@ -104,7 +105,43 @@ window.onload = function() {
 
   //Imprime en consola:
 
+  console.log("Método for: ");
   console.log(newDomain3);
+
+  //Método forEach
+  let newDomainforEach = "";
+
+  arrayExt.forEach(subArrayEach => {
+    newDomainforEach += aleatorio(subArrayEach);
+  });
+
+  //Imprime en consola:
+
+  console.log("Método forEach: ");
+  console.log(newDomainforEach);
+
+  //Método for..of
+  let newDomainForOf = "";
+
+  for (let subArrayOf of arrayExt) {
+    newDomainForOf += aleatorio(subArrayOf);
+  }
+
+  //Imprime en consola:
+
+  console.log("Método for..of: ");
+  console.log(newDomainForOf);
+
+  //Método map
+
+  let newDomainMap = "";
+
+  arrayExt.map(subArrayMap => (newDomainMap += aleatorio(subArrayMap)));
+
+  //Imprime en consola
+
+  console.log("Método map:");
+  console.log(newDomainMap);
 
   document.getElementById("nombredominio4").innerHTML +=
     "<p>Comprueba en consola</p>";
