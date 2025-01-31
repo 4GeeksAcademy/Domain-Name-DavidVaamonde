@@ -9,145 +9,124 @@ window.onload = function() {
   //write your code here
   console.log("Hello Rigo from the console!");
 
-  const pronombre = ["el", "la", "lo", "la"];
-  const adj = ["mas", "posible", "delicioso", "menos"];
-  const nombre = ["fuerte", "cachopo", "barba", "lapiz"];
+  const pronombres = ["el", "la", "lo", "la"];
+  const adjs = ["mas", "posible", "delicioso", "menos"];
+  const nombres = ["fuerte", "cachopo", "barba", "lapiz"];
 
   //Opción 1
 
   console.log("Opción 1: ");
+  console.log("Bucle forEach:");
 
-  let pronomAl = aleatorio(pronombre);
-  let adjAl = aleatorio(adj);
-  let nombreAl = aleatorio(nombre);
+  const dominio1 = [];
 
-  //Imprime en página web HTML:
-
-  document.getElementById("nombredominio1").innerHTML =
-    "<p style='border: 2px solid red;'>" +
-    pronomAl +
-    adjAl +
-    nombreAl +
-    ".com </p>";
-
-  document.getElementById("nombredominio1").innerHTML +=
-    "<p>Comprueba en consola</p>";
-
-  //Imprime en consola:
-
-  console.log(pronomAl + adjAl + nombreAl + ".com");
-
-  //Opcion 2
-
-  console.log("Opción 2:");
-
-  const arrayDom = [pronombre, adj, nombre];
-
-  let newDomain = "";
-
-  for (let i = 0; i < arrayDom.length; i++) {
-    newDomain += aleatorio(arrayDom[i]);
-  }
-
-  //Imprime en la página web HTML:
-  document.getElementById("nombredominio2").innerHTML =
-    "<p style='border: 2px dashed red'>" + newDomain + ".com </p>";
-  document.getElementById("nombredominio2").innerHTML +=
-    "<p>Comprueba en consola</p>";
-
-  //Imprime en consola:
-
-  console.log(newDomain + ".com");
-
-  //Opcion 3
-
-  let newDomain2 = "";
-
-  console.log("Opción 3: ");
-
-  for (let i = 0; i < 10; i++) {
-    const elementos = arrayDom.map(arr => arr[i % arr.length]);
-    const frase = elementos.join("");
-
-    //Imprime en la página web HTML:
-    document.getElementById("nombredominio3").innerHTML +=
-      "<p style='border: 2px dotted red'>" +
-      (i + 1) +
-      ". " +
-      frase +
-      ".com </p>";
-
-    //Imprime en consola:
-    console.log(i + 1 + ". " + frase + ".com");
-  }
-
-  document.getElementById("nombredominio3").innerHTML +=
-    "<p>Comprueba en consola</p>";
-
-  //Opción 4 (Con extensiones web)
-
-  console.log("Opción 4:");
-
-  const extensiones = [".com", ".net", ".es", ".eu", ".org"];
-
-  const arrayExt = [pronombre, adj, nombre, extensiones];
-
-  //Método for tradicional
-  let newDomain3 = "";
-
-  for (let i = 0; i < arrayExt.length; i++) {
-    newDomain3 += aleatorio(arrayExt[i]);
-  }
-
-  //Imprime en la página web HTML
-  document.getElementById("nombredominio4").innerHTML =
-    "<p style='border: 2px groove red'>" + newDomain3 + "</p>";
-
-  //Imprime en consola:
-
-  console.log("Método for: ");
-  console.log(newDomain3);
-
-  //Método forEach
-  let newDomainforEach = "";
-
-  arrayExt.forEach(subArrayEach => {
-    newDomainforEach += aleatorio(subArrayEach);
+  //Bucle forEach
+  pronombres.forEach(pronombre => {
+    adjs.forEach(adj => {
+      nombres.forEach(nombre => {
+        //Mostrar en consola
+        const nombreDominio1 = pronombre + adj + nombre + ".com";
+        dominio1.push(nombreDominio1);
+      });
+    });
   });
 
-  //Imprime en consola:
+  //Muestra en consola
+  console.log(dominio1);
 
-  console.log("Método forEach: ");
-  console.log(newDomainforEach);
+  //Opción 2:
 
-  //Método for..of
-  let newDomainForOf = "";
+  console.log("Opción 2:");
+  console.log("Bucle For of");
 
-  for (let subArrayOf of arrayExt) {
-    newDomainForOf += aleatorio(subArrayOf);
+  const dominio2 = [];
+
+  //Bucle For Of
+  for (let pronombre of pronombres) {
+    for (let adj of adjs) {
+      for (let nombre of nombres) {
+        //Mostrar en consola
+        const nombreDominio2 = pronombre + adj + nombre + ".com";
+        dominio2.push(nombreDominio2);
+      }
+    }
   }
 
-  //Imprime en consola:
+  //Muestra en pantalla
+  console.log(dominio2);
 
-  console.log("Método for..of: ");
-  console.log(newDomainForOf);
+  console.log("Opción 3:");
+  console.log("Bucle For in");
 
-  //Método map
+  const dominio3 = [];
 
-  let newDomainMap = "";
+  //Bucle For In
+  for (let pro in pronombres) {
+    for (let adj in adjs) {
+      for (let nom in nombres) {
+        //Mostrar en consola
+        const nombreDominio3 =
+          pronombres[pro] + adjs[adj] + nombres[nom] + ".com";
+        dominio3.push(nombreDominio3);
+      }
+    }
+  }
 
-  arrayExt.map(subArrayMap => (newDomainMap += aleatorio(subArrayMap)));
+  //Muestra en pantalla
+  console.log(dominio3);
 
-  //Imprime en consola
+  //Opción extra: tipos de extensiones
+  console.log("Opción extra:");
+  console.log("Tipos de extensiones");
 
-  console.log("Método map:");
-  console.log(newDomainMap);
+  //Declaramos la variable de array de extensiones
+  const extensiones = [".com", ".te", ".po", ".ba"];
 
-  document.getElementById("nombredominio4").innerHTML +=
-    "<p>Comprueba en consola</p>";
+  const dominioExtra = [];
+
+  //Bucle forEach
+  pronombres.forEach(pronombre => {
+    adjs.forEach(adj => {
+      nombres.forEach(nombre => {
+        extensiones.forEach(ext => {
+          //Mostrar en consola
+          const nombreDominioExtra = pronombre + adj + nombre + ext;
+          dominioExtra.push(nombreDominioExtra);
+        });
+      });
+    });
+  });
+
+  //Muestra en consola
+  console.log(dominioExtra);
+
+  //Segundo punto
+  console.log("Punto extra: ");
+  const DominioExtraPunto = [];
+
+  //Bucle For Of
+  for (let pronombre of pronombres) {
+    for (let adj of adjs) {
+      for (let nombre of nombres) {
+        for (let ext of extensiones) {
+          //Longitud de la extension
+          const longitudTerminacion = ext.length;
+          const verificador = nombre.slice(-longitudTerminacion);
+          const dominioBase = pronombre + adj + nombre;
+
+          if (verificador === ext) {
+            DominioExtraPunto.push(
+              pronombre + adj + nombre.slice(0, -longitudTerminacion) + ext
+            );
+          } else {
+            //Genera el dominio normal
+            DominioExtraPunto.push(dominioBase + ext);
+          }
+        }
+      }
+    }
+  }
+
+  //Muestra en consola
+  console.log(DominioExtraPunto);
 };
-
-function aleatorio(arr) {
-  let nuevoInd = Math.floor(Math.random() * arr.length);
-  return arr[nuevoInd];
-}
