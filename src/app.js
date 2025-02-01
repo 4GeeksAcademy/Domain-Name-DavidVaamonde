@@ -102,25 +102,29 @@ window.onload = function() {
 
   //Segundo punto
   console.log("Punto extra: ");
-  const DominioExtraPunto = [];
+  const nombresDeDominio = [];
 
   //Bucle For Of
   for (let pronombre of pronombres) {
     for (let adj of adjs) {
       for (let nombre of nombres) {
         for (let ext of extensiones) {
-          //Longitud de la extension
+          // Longitud de la extensión
           const longitudTerminacion = ext.length;
           const verificador = nombre.slice(-longitudTerminacion);
           const dominioBase = pronombre + adj + nombre;
+          const dominioVerificador = pronombre + adj + nombre.slice(0, -longitudTerminacion) + ext;
 
           if (verificador === ext) {
-            DominioExtraPunto.push(
-              pronombre + adj + nombre.slice(0, -longitudTerminacion) + ext
-            );
+            nombresDeDominio.push(dominioVerificador);
+            /*`${pronombre}${adj}${nombre.slice(
+                0,
+                -longitudTerminacion
+              )}.${ext}`
+            );*/
           } else {
-            //Genera el dominio normal
-            DominioExtraPunto.push(dominioBase + ext);
+            // Generar el dominio regular
+            nombresDeDominio.push(`${dominioBase}.${ext}`);
           }
         }
       }
@@ -128,5 +132,5 @@ window.onload = function() {
   }
 
   //Muestra en consola
-  console.log(DominioExtraPunto);
+  console.log(nombresDeDominio);
 };
