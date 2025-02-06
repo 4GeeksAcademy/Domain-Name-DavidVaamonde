@@ -9,6 +9,26 @@ window.onload = function() {
   //write your code here
   console.log("Hello Rigo from the console!");
 
+  //Ejercicio
+  console.log("Ejercicio: ");
+  let pronoun = ["the", "our"];
+  let adj = ["great", "big"];
+  let noun = ["jogger", "racoon"];
+
+  //Sin array
+
+  let variable = "";
+
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        variable += " " + pronoun[i] + adj[j] + noun[k] + ".com | ";
+      }
+    }
+  }
+
+  console.log(variable);
+
   const pronombres = ["el", "la", "lo", "la"];
   const adjs = ["mas", "posible", "delicioso", "menos"];
   const nombres = ["fuerte", "cachopo", "barba", "lapiz"];
@@ -18,15 +38,15 @@ window.onload = function() {
   console.log("Opción 1: ");
   console.log("Bucle forEach:");
 
-  const dominio1 = [];
+  let dominio1 = "";
 
   //Bucle forEach
   pronombres.forEach(pronombre => {
     adjs.forEach(adj => {
       nombres.forEach(nombre => {
         //Mostrar en consola
-        const nombreDominio1 = pronombre + adj + nombre + ".com";
-        dominio1.push(nombreDominio1);
+        const nombreDominio1 = pronombre + adj + nombre + ".com | ";
+        dominio1 += nombreDominio1;
       });
     });
   });
@@ -39,15 +59,15 @@ window.onload = function() {
   console.log("Opción 2:");
   console.log("Bucle For of");
 
-  const dominio2 = [];
+  let dominio2 = "";
 
   //Bucle For Of
   for (let pronombre of pronombres) {
     for (let adj of adjs) {
       for (let nombre of nombres) {
         //Mostrar en consola
-        const nombreDominio2 = pronombre + adj + nombre + ".com";
-        dominio2.push(nombreDominio2);
+        const nombreDominio2 = pronombre + adj + nombre + ".com | ";
+        dominio2 += nombreDominio2;
       }
     }
   }
@@ -58,7 +78,7 @@ window.onload = function() {
   console.log("Opción 3:");
   console.log("Bucle For in");
 
-  const dominio3 = [];
+  let dominio3 = "";
 
   //Bucle For In
   for (let pro in pronombres) {
@@ -66,8 +86,9 @@ window.onload = function() {
       for (let nom in nombres) {
         //Mostrar en consola
         const nombreDominio3 =
-          pronombres[pro] + adjs[adj] + nombres[nom] + ".com";
-        dominio3.push(nombreDominio3);
+          pronombres[pro] + adjs[adj] + nombres[nom] + ".com | ";
+
+        dominio3 += nombreDominio3;
       }
     }
   }
@@ -75,62 +96,29 @@ window.onload = function() {
   //Muestra en pantalla
   console.log(dominio3);
 
-  //Opción extra: tipos de extensiones
-  console.log("Opción extra:");
-  console.log("Tipos de extensiones");
+  console.log("Opción extra: ");
 
-  //Declaramos la variable de array de extensiones
-  const extensiones = [".com", ".te", ".po", ".ba"];
+  let domainHacks = [".er", ".ur", ".ig"];
 
-  const dominioExtra = [];
+  let dominiosExtra = [];
 
-  //Bucle forEach
-  pronombres.forEach(pronombre => {
-    adjs.forEach(adj => {
-      nombres.forEach(nombre => {
-        extensiones.forEach(ext => {
-          //Mostrar en consola
-          const nombreDominioExtra = pronombre + adj + nombre + ext;
-          dominioExtra.push(nombreDominioExtra);
-        });
-      });
-    });
-  });
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        for (let m = 0; m < domainHacks.length; m++) {
+          const nouns = noun[k];
 
-  //Muestra en consola
-  console.log(dominioExtra);
-
-  //Segundo punto
-  console.log("Punto extra: ");
-  const nombresDeDominio = [];
-
-  //Bucle For Of
-  for (let pronombre of pronombres) {
-    for (let adj of adjs) {
-      for (let nombre of nombres) {
-        for (let ext of extensiones) {
-          // Longitud de la extensión
-          const longitudTerminacion = ext.length;
-          const verificador = nombre.slice(-longitudTerminacion);
-          const dominioBase = pronombre + adj + nombre;
-          const dominioVerificador = pronombre + adj + nombre.slice(0, -longitudTerminacion) + ext;
-
-          if (verificador === ext) {
-            nombresDeDominio.push(dominioVerificador);
-            /*`${pronombre}${adj}${nombre.slice(
-                0,
-                -longitudTerminacion
-              )}.${ext}`
-            );*/
-          } else {
-            // Generar el dominio regular
-            nombresDeDominio.push(`${dominioBase}.${ext}`);
+          if (nouns.length > 3) {
+            let hackPrefijo = nouns.slice(0, -2);
+            let hackSufijo = nouns.slice(-2);
+            dominiosExtra.push(`${hackPrefijo}.${hackSufijo}`);
           }
+
+          dominiosExtra.push(noun[k] + domainHacks[m]);
         }
       }
     }
   }
 
-  //Muestra en consola
-  console.log(nombresDeDominio);
+  console.log(dominiosExtra);
 };
