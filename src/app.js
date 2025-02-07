@@ -29,6 +29,34 @@ window.onload = function() {
 
   console.log(variable);
 
+  //Opción extra:
+
+  console.log("Opción extra: ");
+
+  let domainHacks = [".er", ".ur", ".ig"];
+
+  let dominiosExtra = "";
+
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        for (let m = 0; m < domainHacks.length; m++) {
+          const nouns = noun[k];
+
+          if (nouns.length > 3) {
+            let hackPrefijo = nouns.slice(0, -2);
+            let hackSufijo = nouns.slice(-2);
+            dominiosExtra += hackPrefijo + "." + hackSufijo + " | ";
+          }
+
+          dominiosExtra += noun[k] + domainHacks[m] + " | ";
+        }
+      }
+    }
+  }
+
+  console.log(dominiosExtra);
+
   const pronombres = ["el", "la", "lo", "la"];
   const adjs = ["mas", "posible", "delicioso", "menos"];
   const nombres = ["fuerte", "cachopo", "barba", "lapiz"];
@@ -95,30 +123,4 @@ window.onload = function() {
 
   //Muestra en pantalla
   console.log(dominio3);
-
-  console.log("Opción extra: ");
-
-  let domainHacks = [".er", ".ur", ".ig"];
-
-  let dominiosExtra = [];
-
-  for (let i = 0; i < pronoun.length; i++) {
-    for (let j = 0; j < adj.length; j++) {
-      for (let k = 0; k < noun.length; k++) {
-        for (let m = 0; m < domainHacks.length; m++) {
-          const nouns = noun[k];
-
-          if (nouns.length > 3) {
-            let hackPrefijo = nouns.slice(0, -2);
-            let hackSufijo = nouns.slice(-2);
-            dominiosExtra.push(`${hackPrefijo}.${hackSufijo}`);
-          }
-
-          dominiosExtra.push(noun[k] + domainHacks[m]);
-        }
-      }
-    }
-  }
-
-  console.log(dominiosExtra);
 };
